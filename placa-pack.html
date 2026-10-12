@@ -7,15 +7,10 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500&family=Jost:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css"></head>
 <body data-page="productos" data-product="Placa pack cuadra">
-<main class="sec top pp"><div class="wrap two"><div class="ph"><img src="media/placa-pack.jpg" alt="Placa pack cuadra"></div>
+<main class="sec top pp"><div class="wrap two"><div class="ph"><img src="media/placa-extra.jpg" alt="Placa pack cuadra"></div>
 <div><a class="back" href="productos.html">Volver a productos</a><h1>Placa pack cuadra</h1><p class="price">129 €</p><p>Tres placas básicas para los caballos de tu cuadra, a precio de pack. Cada una lleva su nombre y su ficha completa.</p>
 <label for="nombre">Nombres de los 3 caballos</label><input type="text" id="nombre" data-l="Nombres de los caballos" placeholder="Ej. Trueno, Luna, Bruma" maxlength="80">
-<fieldset><legend>Color</legend><div class="chips">
-<label><input type="radio" name="color" value="Marrón" checked><span>Marrón</span></label>
-<label><input type="radio" name="color" value="Negro"><span>Negro</span></label>
-<label><input type="radio" name="color" value="Natural"><span>Natural</span></label>
-<label><input type="radio" name="color" value="Blanco"><span>Blanco</span></label>
-<label><input type="radio" name="color" value="Personalizado"><span>Personalizado</span></label></div>
+<fieldset><legend>Color</legend><div class="swatches" data-swatches></div>
 <input type="text" id="color-custom" hidden placeholder="Describe el color que quieres" maxlength="40" aria-label="Color personalizado"></fieldset>
 <a id="pedir" class="btn" href="#">Contactar y pedir</a></div></div></main>
 <script src="script.js"></script></body></html>
