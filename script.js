@@ -1,4 +1,4 @@
-const WA='34674774758',EXTRA=5;
+const WA='34607294788',EXTRA=5;
 const wa=t=>`https://wa.me/${WA}?text=${encodeURIComponent(t)}`;
 const page=document.body.dataset.page;
 const links=[['index.html','inicio','Inicio'],['productos.html','productos','Productos'],['instrucciones.html','instrucciones','Instrucciones de uso'],['contacto.html','contacto','Contacto']];
@@ -22,7 +22,7 @@ lock:'<rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0
 globe:'<circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/>',
 mail:'<rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/>'};
 document.body.insertAdjacentHTML('afterbegin',`<header><a class="logo" href="index.html">Your Horse</a><button class="burger" aria-label="Abrir menú" aria-expanded="false">☰</button><nav>${links.map(l=>`<a href="${l[0]}"${l[1]===page?' class="on"':''}>${l[2]}</a>`).join('')}</nav></header>`);
-document.body.insertAdjacentHTML('beforeend',`<footer><p>Your Horse · www.your-horse.com</p><p>info@your-horse.com · 674 774 758</p></footer><a class="wa" href="${wa('Hola, quiero información sobre Your Horse.')}" target="_blank" rel="noopener">WhatsApp</a>`);
+document.body.insertAdjacentHTML('beforeend',`<footer><p>Your Horse · www.your-horse.com</p><p>info@your-horse.com · 607 294 788</p></footer><a class="wa" href="${wa('Hola, quiero información sobre Your Horse.')}" target="_blank" rel="noopener">WhatsApp</a>`);
 const header=document.querySelector('header'),burger=document.querySelector('.burger');
 const solid=()=>header.classList.toggle('solid',page!=='inicio'||scrollY>40);
 solid();addEventListener('scroll',solid,{passive:true});
