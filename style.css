@@ -119,3 +119,8 @@ i[data-i] svg{width:52%;height:52%;fill:none;stroke:currentColor;stroke-width:1.
 .pz .sw span{width:2.1rem;height:2.1rem}
 .pz .sw em{font-size:.6rem}
 .pz .note{font-size:.8rem;line-height:1.3}}
+
+/* v4: pago */
+.pp .btn{margin:0 .6rem .8rem 0}
+.btn.alt{background:none;color:var(--deep);border:1px solid var(--deep)}
+.btn.alt:hover,.btn.alt:focus-visible{background:var(--deep);color:#fff}

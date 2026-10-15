@@ -1,9 +1,39 @@
-const WA='34607294788',EXTRA=5;
+const WA='34674774758',EXTRA=5;
+/* Pasarela de pago: un Payment Link de Stripe por producto y color (24 en total). Sustituye cada URL por la real. */
+const PAY={
+'Placa básica':{
+marron:'https://buy.stripe.com/4gMbJ37bi4iya7C1BRe7m00',
+negro:'https://buy.stripe.com/test_14A28rf9t1Km2tz1xH3AY03',
+natural:'https://buy.stripe.com/test_eVq8wP2mH4Wyc496S13AY04',
+blanco:'https://buy.stripe.com/REEMPLAZAR_BASICA_BLANCO',
+verde:'https://buy.stripe.com/REEMPLAZAR_BASICA_VERDE',
+personalizado:'https://buy.stripe.com/REEMPLAZAR_BASICA_PERSONALIZADO'},
+'Placa de concurso':{
+marron:'https://buy.stripe.com/REEMPLAZAR_CONCURSO_MARRON',
+negro:'https://buy.stripe.com/REEMPLAZAR_CONCURSO_NEGRO',
+natural:'https://buy.stripe.com/REEMPLAZAR_CONCURSO_NATURAL',
+blanco:'https://buy.stripe.com/REEMPLAZAR_CONCURSO_BLANCO',
+verde:'https://buy.stripe.com/REEMPLAZAR_CONCURSO_VERDE',
+personalizado:'https://buy.stripe.com/REEMPLAZAR_CONCURSO_PERSONALIZADO'},
+'Placa de caballo en venta':{
+marron:'https://buy.stripe.com/REEMPLAZAR_VENTA_MARRON',
+negro:'https://buy.stripe.com/REEMPLAZAR_VENTA_NEGRO',
+natural:'https://buy.stripe.com/REEMPLAZAR_VENTA_NATURAL',
+blanco:'https://buy.stripe.com/REEMPLAZAR_VENTA_BLANCO',
+verde:'https://buy.stripe.com/REEMPLAZAR_VENTA_VERDE',
+personalizado:'https://buy.stripe.com/REEMPLAZAR_VENTA_PERSONALIZADO'},
+'Placa pack cuadra':{
+marron:'https://buy.stripe.com/REEMPLAZAR_PACK_MARRON',
+negro:'https://buy.stripe.com/REEMPLAZAR_PACK_NEGRO',
+natural:'https://buy.stripe.com/REEMPLAZAR_PACK_NATURAL',
+blanco:'https://buy.stripe.com/REEMPLAZAR_PACK_BLANCO',
+verde:'https://buy.stripe.com/REEMPLAZAR_PACK_VERDE',
+personalizado:'https://buy.stripe.com/REEMPLAZAR_PACK_PERSONALIZADO'}};
 const wa=t=>`https://wa.me/${WA}?text=${encodeURIComponent(t)}`;
 const page=document.body.dataset.page;
 const links=[['index.html','inicio','Inicio'],['productos.html','productos','Productos'],['instrucciones.html','instrucciones','Instrucciones de uso'],['contacto.html','contacto','Contacto']];
 /* Colores: [nombre, slug de imagen, color]. Imagen: media/<producto>-<slug>.jpg */
-const COLORS=[['Bronce','bronce','#d9c3a0'],['Marrón','marron','#7a5a43'],['Negro','negro','#1c1c1c'],['Blanco','blanco','#ffffff'],['Rosa','rosa','#ffd0f6'],['Personalizado','personalizado','conic-gradient(#e11d48,#f59e0b,#10b981,#3b82f6,#8b5cf6,#e11d48)']];
+const COLORS=[['Marrón','marron','#7a5a43'],['Negro','negro','#1c1c1c'],['Natural','natural','#d9c3a0'],['Blanco','blanco','#ffffff'],['Verde','verde','#3f5a45'],['Personalizado','personalizado','conic-gradient(#e11d48,#f59e0b,#10b981,#3b82f6,#8b5cf6,#e11d48)']];
 const IC={
 user:'<path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>',
 home:'<path d="M3 10.5 12 3l9 7.5V21H3z"/><path d="M9 21v-6h6v6"/>',
@@ -22,7 +52,7 @@ lock:'<rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0
 globe:'<circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/>',
 mail:'<rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/>'};
 document.body.insertAdjacentHTML('afterbegin',`<header><a class="logo" href="index.html">Your Horse</a><button class="burger" aria-label="Abrir menú" aria-expanded="false">☰</button><nav>${links.map(l=>`<a href="${l[0]}"${l[1]===page?' class="on"':''}>${l[2]}</a>`).join('')}</nav></header>`);
-document.body.insertAdjacentHTML('beforeend',`<footer><p>Your Horse · www.your-horse.com</p><p>info@your-horse.com · 607 294 788</p></footer><a class="wa" href="${wa('Hola, quiero información sobre Your Horse.')}" target="_blank" rel="noopener">WhatsApp</a>`);
+document.body.insertAdjacentHTML('beforeend',`<footer><p>Your Horse · www.your-horse.com</p><p>hola@your-horse.com · 674 774 758</p></footer><a class="wa" href="${wa('Hola, quiero información sobre Your Horse.')}" target="_blank" rel="noopener">WhatsApp</a>`);
 const header=document.querySelector('header'),burger=document.querySelector('.burger');
 const solid=()=>header.classList.toggle('solid',page!=='inicio'||scrollY>40);
 solid();addEventListener('scroll',solid,{passive:true});
@@ -44,12 +74,14 @@ sc.style.setProperty('--tint',k[2][0]==='#'?k[2]:'transparent');sc.classList.rem
 img.onerror=()=>{img.onerror=null;img.src=`media/${base}.jpg`;sc.classList.add('tint')};
 img.src=`media/${base}-${k[1]}.jpg`};
 addEventListener('change',paint);paint();
-/* pedido por WhatsApp */
-const pedir=document.getElementById('pedir');
-if(pedir){const f=[...document.querySelectorAll('[data-l]')],cc=document.getElementById('color-custom'),b=parseInt(pr.textContent),upd=()=>{
-const r=document.querySelector('input[name=color]:checked').value,p=r==='Personalizado';cc.hidden=!p;pr.textContent=(b+(p?EXTRA:0))+' €';
-const d=f.map(i=>i.type==='checkbox'?(i.checked?i.dataset.l+': lo envío por este chat':''):(i.value.trim()?`${i.dataset.l}: ${i.value.trim()}`:'')).filter(Boolean);
-pedir.href=wa(`Hola, quiero pedir la ${document.body.dataset.product}. ${d.join('. ')}${d.length?'. ':''}Color: ${p?'Personalizado'+(cc.value.trim()?' ('+cc.value.trim()+')':'')+' (+'+EXTRA+' €)':r}.`)};
-pedir.target='_blank';pedir.rel='noopener';document.addEventListener('input',upd);upd()}
+/* precio y enlace de pago */
+const pg=document.getElementById('pagar');
+if(pg){const cc=document.getElementById('color-custom'),b=parseInt(pr.textContent),upd=()=>{
+const r=document.querySelector('input[name=color]:checked').value,p=r==='Personalizado',slug=COLORS.find(c=>c[0]===r)[1];
+cc.hidden=!p;pr.textContent=(b+(p?EXTRA:0))+' €';
+const pu=(PAY[document.body.dataset.product]||{})[slug];
+if(!pu||pu.includes('REEMPLAZAR'))pg.hidden=true;else{pg.hidden=false;
+pg.href=pu+'?client_reference_id='+location.pathname.split('/').pop().replace('.html','').replace(/[^\w-]/g,'')+'_'+slug}};
+document.addEventListener('input',upd);upd()}
 const io=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('v');io.unobserve(x.target)}}),{threshold:.15});
 document.querySelectorAll('.rv').forEach(el=>io.observe(el));
