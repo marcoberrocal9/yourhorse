@@ -124,3 +124,25 @@ i[data-i] svg{width:52%;height:52%;fill:none;stroke:currentColor;stroke-width:1.
 .pp .btn{margin:0 .6rem .8rem 0}
 .btn.alt{background:none;color:var(--deep);border:1px solid var(--deep)}
 .btn.alt:hover,.btn.alt:focus-visible{background:var(--deep);color:#fff}
+
+/* v5: ficha de producto en una columna (título, texto, foto, colores, pago) */
+.wrap.one{max-width:620px}
+.pp h1{font-size:clamp(2.4rem,9vw,3.6rem)}
+.pp .ph.show{margin:1.5rem auto 0;max-width:400px}
+
+/* v6: ficha de producto - móvil: título, texto, foto, colores y pago en una columna; ordenador: foto a un lado y texto al otro */
+.pp fieldset{margin-top:1.5rem}
+.pp .swatches{flex-wrap:nowrap;justify-content:space-between;gap:.3rem;margin:.6rem 0 1.5rem}
+.pp .sw{width:auto;flex:1;min-width:0;gap:.3rem}
+.pp .sw:last-child{flex:1.6}
+.pp .sw span{width:clamp(1.9rem,9.5vw,2.5rem);height:clamp(1.9rem,9.5vw,2.5rem)}
+.pp .sw em{font-size:.58rem;overflow-wrap:normal}
+@media(min-width:800px){
+.wrap.one{max-width:1400px;display:grid;grid-template-columns:1fr 1fr;column-gap:4rem}
+.pp-top{grid-column:2;grid-row:1;align-self:end}
+.pp-bot{grid-column:2;grid-row:2;align-self:start}
+.pp .ph.show{grid-column:1;grid-row:1 / span 2;align-self:center;max-width:680px;margin:0 auto}
+.pp h1{font-size:clamp(2.8rem,4.6vw,4.4rem)}
+.pp .sw span{width:clamp(2.6rem,3.6vw,3.6rem);height:clamp(2.6rem,3.6vw,3.6rem)}
+.pp .sw em{font-size:clamp(.6rem,1.05vw,.8rem)}
+.pp .btn{margin-top:.5rem}}
