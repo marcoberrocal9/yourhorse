@@ -2,29 +2,29 @@ const WA='34607294788';
 /* Pasarela de pago: un Payment Link de Stripe por producto y color (20 en total). El color 'Personalizado' lleva a la página de contacto. Sustituye cada URL por la real. */
 const PAY={
 'Placa básica':{
-bronce:'https://buy.stripe.com/test_eVq8wP2mH4Wyc496S13AY04',
+bronce:'https://buy.stripe.com/3cI7sN67ecP4a7CfsHe7m01',
 marron:'https://buy.stripe.com/4gMbJ37bi4iya7C1BRe7m00',
-negro:'https://buy.stripe.com/test_14A28rf9t1Km2tz1xH3AY03',
-blanco:'https://buy.stripe.com/REEMPLAZAR_BASICA_BLANCO',
-rosa:'https://buy.stripe.com/REEMPLAZAR_BASICA_ROSA'},
+negro:'https://buy.stripe.com/4gMaEZ53a9CSfrW80fe7m02',
+blanco:'https://buy.stripe.com/aFa14p8fmg1g7ZufsHe7m03',
+rosa:'https://buy.stripe.com/14AeVf3Z64iycfKcgve7m04'},
 'Placa de concurso':{
-bronce:'https://buy.stripe.com/REEMPLAZAR_CONCURSO_BRONCE',
-marron:'https://buy.stripe.com/REEMPLAZAR_CONCURSO_MARRON',
-negro:'https://buy.stripe.com/REEMPLAZAR_CONCURSO_NEGRO',
-blanco:'https://buy.stripe.com/REEMPLAZAR_CONCURSO_BLANCO',
-rosa:'https://buy.stripe.com/REEMPLAZAR_CONCURSO_ROSA'},
+bronce:'https://buy.stripe.com/9B6eVf8fm2aq7ZueoDe7m0k',
+marron:'https://buy.stripe.com/5kQ6oJ67eg1g6VqeoDe7m06',
+negro:'https://buy.stripe.com/14A6oJ9jqeXc2Fa4O3e7m07',
+blanco:'https://buy.stripe.com/7sYbJ3fHO3eu4Nia8ne7m08',
+rosa:'https://buy.stripe.com/3cI28t8fm02i93y3JZe7m09'},
 'Placa de caballo en venta':{
-bronce:'https://buy.stripe.com/REEMPLAZAR_VENTA_BRONCE',
-marron:'https://buy.stripe.com/REEMPLAZAR_VENTA_MARRON',
-negro:'https://buy.stripe.com/REEMPLAZAR_VENTA_NEGRO',
-blanco:'https://buy.stripe.com/REEMPLAZAR_VENTA_BLANCO',
-rosa:'https://buy.stripe.com/REEMPLAZAR_VENTA_ROSA'},
+bronce:'https://buy.stripe.com/00wcN753a8yO1B6a8ne7m0a',
+marron:'https://buy.stripe.com/bJeeVf0MU8yOgw06Wbe7m0b',
+negro:'https://buy.stripe.com/00waEZcvCeXccfK80fe7m0e',
+blanco:'https://buy.stripe.com/fZuaEZcvC02icfKfsHe7m0c',
+rosa:'https://buy.stripe.com/6oU3cxgLS4iy5RmfsHe7m0d'},
 'Placa Tack Room':{
-bronce:'https://buy.stripe.com/REEMPLAZAR_PACK_BRONCE',
-marron:'https://buy.stripe.com/REEMPLAZAR_PACK_MARRON',
-negro:'https://buy.stripe.com/REEMPLAZAR_PACK_NEGRO',
-blanco:'https://buy.stripe.com/REEMPLAZAR_PACK_BLANCO',
-rosa:'https://buy.stripe.com/REEMPLAZAR_PACK_ROSA'}};
+bronce:'https://buy.stripe.com/bJe28tanu3eubbG3JZe7m0f',
+marron:'https://buy.stripe.com/eVqeVf8fm02ifrWbcre7m0g',
+negro:'https://buy.stripe.com/00w14peDK4iyenSdkze7m0i',
+blanco:'https://buy.stripe.com/3cIcN70MU02idjOcgve7m0h',
+rosa:'https://buy.stripe.com/eVqaEZ7bi5mC0x24O3e7m0j'}};
 const wa=t=>`https://wa.me/${WA}?text=${encodeURIComponent(t)}`;
 const page=document.body.dataset.page;
 const links=[['index.html','inicio','Inicio'],['productos.html','productos','Productos'],['instrucciones.html','instrucciones','Instrucciones de uso'],['contacto.html','contacto','Contacto']];
